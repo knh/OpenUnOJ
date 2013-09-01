@@ -1,0 +1,26 @@
+extends adminbody
+
+block content-sidebar
+	div.well.sidebar-nav.backend
+		ul.nav.nav-list
+			li.nav-header 用户操作
+			li(class="#{sidebar == 'home' ? 'active' : ''}") 
+				a(href="/admin/users") 用户列表
+			li(class="#{sidebar == 'add' ? 'active' : ''}") 
+				a(href="/admin/users?page=add") 添加
+			li.nav-header 管理
+			li(class="#{sidebar == 'admin' ? 'active' : ''}") 
+				a(href="/admin/users?page=admin") 管理特权用户
+			li(class="#{sidebar == 'org' ? 'active' : ''}") 
+				a(href="/admin/users?page=org") 管理组织
+
+block content-inner
+	h1 用户管理
+	table#userTable.table.table-bordered
+		thead
+			tr	
+				th 用户名
+				th 邮箱
+				th 权限
+				th 注册日期
+				th 操作

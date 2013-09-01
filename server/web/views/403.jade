@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	div.container
+		div.hero-unit
+			h2 403 - 拒绝访问
+			p 您正在试图进行的操作未被授权。请检查您的权限符合要求。
+			p 错误描述 ： #{edesc ? edesc : "无"}

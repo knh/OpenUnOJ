@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+	div.container
+		h1(style="text-align:center;") A+B Problem
+		table.table.table-bordered
+			tr
+				th(width="12.5%") 时间限制
+				td(width="37.5%") #{problem.time} ms
+				th(width="15%") 内存限制
+				td(width="35%") #{problem.memory} KB
+			tr
+				th 支持语言
+				td C++, C, Java, JavaScript, little-lisp
+				th 提交状况（AC/Submit)
+				td #{problem.status.accepted}/#{problem.status.submit}
+			tr
+				th 题目信息
+				th(colspan="3")
+					a.btn.btn-success.btn-mini(href="/problem/submit/#{problem.id}") 提交
+					&nbsp;
+					a.btn.btn-info.btn-mini(href="/problem/#{problem.id}/discussion") 讨论
+			tr
+				td(colspan="4")
+					h3 Description 
+					p Given two numbers, calculate their sum
+					h3 Input
+					p Two integers a,b (0<= a,b <= 10)
+					h3 Output
+					p Output the sum a+b
+					h3 Sample Input
+					pre
+						code
+						| 1 2
+					h3 Sample Output
+					pre
+						code
+						| 3
+					h2 Hint
+					h2 Source
+					p poj
+			tr
+				td(colspan="4")
+					a.btn.btn-success(href="/problem/submit/#{problem.id}") 提交代码
+					&nbsp;
+					a.btn.btn-info(href="/problem/#{problem.id}/discussion") 讨论

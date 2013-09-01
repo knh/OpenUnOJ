@@ -1,0 +1,39 @@
+extends layout
+
+block content
+	div.container
+		h1 排名信息
+		ul.nav.nav-tabs
+			li.active
+				a(href="/ranking") 提交者排名
+			li
+				a(href="/ranking?cat=problem") 题目排名
+			li
+				a(href="/ranking?cat=team") 团体排名
+		table.table.table-striped.table-hover
+			thead
+				tr
+					th(width="40") 顺位
+					th 用户名
+					th 个性签名
+					th(width="100") 解决
+					th(width="100") 提交
+					th(width="150") 比率（AC数/提交数）%
+			tbody
+				tr
+					td 1
+					td admin
+					td 我是管理员！
+					td 1
+					td 2
+					td 50
+		div.pagination.pagination-right
+			ul
+				li
+					a « 前一页
+				li.active
+					a 1
+				li
+					a 2
+				li
+					a 后一页 »				

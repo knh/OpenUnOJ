@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+	div.container
+		h1 题目列表
+		ul.nav.nav-tabs
+			li.active
+				a(href="/problems") 开放题目
+			li
+				a(href="/problems?cat=1") 题目组合1
+		table.table.table-striped.table-hover
+			thead
+				tr
+					th(width="80") #
+					th 标题
+					th(width="150") 比率（AC数/提交数）%
+					th(width="100") 日期
+			tbody
+				tr
+					td 1001
+					td A+B Problem
+					td 100
+					td 2012-10-1
+		div.pagination.pagination-right
+			ul
+				li
+					a « 前一页
+				li.active
+					a 1
+				li
+					a 2
+				li
+					a 后一页 »				

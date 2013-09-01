@@ -1,0 +1,20 @@
+extends layout
+block scripts
+	script(src='/scripts/admin/clientinfo.js')
+block content
+	div.container
+		h2 评测机状态信息
+		table#status-table.table.table-bordered
+			thead
+				tr
+					th Server Name
+					th(width="130px") IP
+					th(width="60px") Running
+					th(width="60px") Max
+					th(width="60px") Status
+					th(width="100px") Exec
+			tbody
+				tr
+					td(colspan="6")
+						| 载入中...
+		div#status-info.well

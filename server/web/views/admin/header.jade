@@ -1,0 +1,25 @@
+div.navbar.navbar-inverse.navbar-fixed-top.backend
+    div.navbar-inner.backend
+        div.container
+            a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.brand(href="/admin")
+                | UNOJ评测后台
+            div.nav-collapse.collapse
+                ul.nav
+                    li(class="#{navigate === 'home' ? 'active' : ''}")
+                        a(href="/admin") 管理首页
+                    li(class="#{navigate === 'status' ? 'active' : ''}")
+                        a(href="/admin/status") 评测机状态
+                    li(class="#{navigate === 'settings' ? 'active' : ''}")
+                        a(href="/admin/settings") 全局设置
+                    li(class="#{navigate === 'users' ? 'active' : ''}")
+                        a(href="/admin/users") 用户
+                    li(class="#{navigate === 'problems' ? 'active' : ''}")
+                        a(href="/admin/problems") 题目
+            div.nav-collapse.collapse
+                p.navbar-text.pull-right
+                    a.navbar-link(href="login", style="color:#fff")
+                        登录

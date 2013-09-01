@@ -1,0 +1,32 @@
+div.navbar.navbar-inverse.navbar-fixed-top
+	div.navbar-inner
+		div.container
+			a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			a.brand(href="/", style="color:#fff;")
+				| UNOJ评测平台
+			div.nav-collapse.collapse
+				ul.nav
+					li(class="#{navigate === 'home' ? 'active' : ''}")
+						a(href="/") 首页
+					li(class="#{(navigate === 'problems' || navigate ==="problem") ? 'active' : ''}")
+						a(href="/problems") 题目
+					li(class="#{navigate === 'contests' ? 'active' : ''}")
+						a(href="/contests") 比赛
+					li(class="#{navigate === 'ranking' ? 'active' : ''}")
+						a(href="/ranking") 排行榜
+					li(class="#{navigate === 'about' ? 'active' : ''}")
+						a(href="/about") 关于
+				- if(!loggedIn){
+					form.navbar-form.form-inline.pull-right(action="/login",method="POST")
+						input.input-small(style="background:#1b1b1b;", type="text", name="username", placeholder="用户名")
+						input.input-small(style="background:#1b1b1b;", type="password", name="password", placeholder="密码")
+						input(type="hidden", name="referer", value="#{url}")
+						button.btn.btn-primary(type="submit") 登录
+				- } else {
+					div.navbar-text.pull-right 你好，
+						span(style="color:#fff") #{nickname} |  
+						a(href="/logout?nonce=#{nonce}") 登出
+				- }

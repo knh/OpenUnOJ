@@ -1,0 +1,50 @@
+extends adminbody
+block scripts
+	- if(sidebar == "home")
+		script(src='/scripts/admin/serverinfo.js')
+	
+block content-sidebar
+	div.well.sidebar-nav.backend
+		ul.nav.nav-list
+			li.nav-header 统计
+			li(class="#{sidebar === 'home' ? 'active' : '' }")
+				a(href="/admin") 后台首页
+			li(class="#{sidebar === 'statistics' ? 'active' : '' }")
+				a(href="/admin?page=statistics") 统计信息
+			li.nav-header 管理
+			li(class="#{sidebar === 'console' ? 'active' : '' }")
+				a(href="/admin?page=console") 执行批处理命令
+			li(class="#{sidebar === 'install' ? 'active' : '' }")
+				a(href="/admin?page=install") 配置新评测机
+
+block content-inner
+	- if(sidebar === 'home'){
+		h1 UnOJ评测平台后台管理设置
+		table.table.table-bordered.pull-right(style="width:300px")
+			tr#stat-current
+				th(width="100px") Server Name
+				td
+					span#stat-server-name
+					i#stat-server-status.icon-ok
+			tr
+				th Version
+				td#stat-node-version
+			tr
+				th Platform
+				td#stat-server-arch
+			tr
+				th Redis
+				td#stat-redis
+			tr#stat-dev
+				th Dev Mode
+				td#stat-dev-mode
+		p 这里还什么都没有呢
+	- } else if(sidebar === "statistics") {
+		h1 全站统计信息
+	- } else if(sidebar === "console") {
+		h1 批处理命令
+	- } else if(sidebar === "install") {
+		h1 配置新评测机
+	- } else {
+		p 没有定义页面
+	- }

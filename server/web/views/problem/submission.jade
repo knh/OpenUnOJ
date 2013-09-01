@@ -1,0 +1,54 @@
+extends ../layout
+
+block scripts
+	script(type='text/javascript', src='/scripts/codemirror.js')
+	script(type='text/javascript', src='/scripts/mode/fullscreen.js')
+	script(type='text/javascript', src='/scripts/mode/merge.dep.js')
+	script(type='text/javascript', src='/scripts/mode/merge.js')
+	script(type='text/javascript', src='/scripts/mode/clike/clike.js')
+	script(type='text/javascript', src='/scripts/mode/php/php.js')
+	script(type='text/javascript', src='/scripts/mode/commonlisp/commonlisp.js')
+	link(rel='stylesheet', href='/css/codemirror.css')
+	script(type='text/javascript', src='/scripts/editor.js')
+
+block content
+	div.container
+		h1(style="text-align:center;") 提交答案
+		form.form-horizontal(action="", method="post")
+			div.control-group
+				label.control-label(for="problemId") 题目代号
+				div.controls
+					input(id="problemId", name="problemId", type="text", value="#{problem.id ? problem.id : 1000}")
+			div.control-group
+				label.control-label(for="language") 代码语言
+				div.controls
+					select(id="language", name="language")
+						- each opt in problem.languages
+							option(value="#{opt.value}") #{opt.name}
+			div.control-group
+				label.control-label(for="code") 代码
+				div.controls
+					a.btn.btn-link(id="bUpload", href="#upload") 上传文件
+					a.btn.btn-link.x-editor-btn(id="bModel", href="#model") 载入模板
+					a.btn.btn-link.x-editor-btn(id="bSave", href="#save") 保存修订
+						| &nbsp;
+						span.badge.badge-info(id="sRevisions") 0
+					a.btn.btn-link.x-editor-btn(id="bDiff", href="#diff") 对比修订
+					div.x-upload(style="display:none;")
+						input(type="file")
+					div.x-editor
+						textarea(id="code", name="code")
+					div.x-merge(style="display:none;")
+					small 
+						|提示：在编辑器中按下 F11 可以启动页面全屏，按下 ESC 退出页面全屏。
+						a(id="bShowDiffHelp", href="#") 修订版功能介绍
+						span(id="sDiffHelp", style="display:none;") 有关修订版：修订版可以用于在内存中保存代码的版本，编辑器中按下 F10 会保存修订版，按下 F9 则会把最近的保存调出并显示。对比修订模式在存在一个或以上修订版时启用，在对比修订模式下，按下 F10 将会保存当前内容为修订版，并以当前内容为基础进行新的对比修订。
+			div.control-group(id="submitter")
+				div.controls
+					input.btn.btn-success(type="submit", value="提交")
+					| &nbsp;
+					div.btn-group
+						a.btn.btn-info(id="run", href="#") 测试运行
+						| &nbsp;
+						a.btn.pull-right.io-interface(id="io", href="#") 输入/输出
+

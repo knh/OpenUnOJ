@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	div.container
+		h1(style="text-align:center;") A+B Problem Discussion
+		ul.media-list
+			li.media
+				a.pull-left(href="#")
+					img.media-object(style="width:32px;height:32px")
+				div.media-body
+					h4.media-heading 讨论版块测试
+					p 这是一些讨论文字
+					div.media
+						a.pull-left(href="#")
+							img.media-object(style="width:32px;height:32px")
+						div.media-body
+							h4.media-heading 这是另一条
+							p 这是一些文字
+						
+		div.pagination
+			ul
+				li
+					a « 前一页
+				li.active
+					a 1
+				li
+					a 2
+				li
+					a 后一页 »

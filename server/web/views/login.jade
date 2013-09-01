@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	div.container-fluid
+		div.row-fluid
+			div.span3
+			div.span6
+				h1 登录
+				form(action='', method='POST')
+					label(for='username') 用户名
+					input(type='text',id='username',name='username')
+					label(for='password') 密码
+					input(type='password',id='username',name='password')
+					input(type='submit',value='登录').btn.btn-primary
+			div.span3
+			
